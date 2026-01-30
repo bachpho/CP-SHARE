@@ -108,8 +108,6 @@ Chọn đáp án và giải thích tại sao, dựa trên quy tắc "số chẵn
 
 Sau khi dán prompt trên vào, bạn chỉ cần nói:
 
-> *"Hãy giúp tôi giải bài Codeforces 4A - Watermelon"*
-```
-> *Hoặc: "Phân tích giúp tôi bài Way Too Long Words (71A)"*
+> *"Codeforces 4A - hoặc một chủ đề lập trình bạn muốn tìm hiểu."*
 
-Gemini sẽ bắt đầu đóng vai Coach và hướng dẫn bạn từng bước.
+```
