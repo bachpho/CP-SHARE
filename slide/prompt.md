@@ -80,7 +80,7 @@ Khi tôi đưa tên bài toán hoặc nội dung đề (VD: "Codeforces 4A - Wat
 
 *(Giả sử đang giải bài Codeforces 4A - Watermelon. Chunk: Điều kiện chia)*
 
-**Gemini:**
+**AI:**
 Được rồi, hãy tưởng tượng quả dưa hấu có cân nặng là ****.
 Hai người bạn muốn chia quả dưa này thành 2 phần.
 
