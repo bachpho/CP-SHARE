@@ -1,8 +1,4 @@
 
-----
-Chào bạn! Mã bài tập **230B** trên Codeforces là một bài toán rất thú vị về lý thuyết số, cụ thể là về số nguyên tố. Dưới đây là chi tiết bài tập:
-
----
 
 # 1. Codeforces 230B - T-primes
 
