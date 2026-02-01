@@ -1,0 +1,6 @@
+- một số hàm thông dụng
+- array cơ bản
+- tính tổng
+- làm bài tập trên luyencode về array.
+- giao bài tập về nhà phần nhận dạng các kiểu số học.
+- 
