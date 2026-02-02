@@ -1,4 +1,4 @@
-# Bài 1 - SAL 
+# A - SAL 
 
 https://codeforces.com/group/iBXOT8i9ss/contest/667261/problem/A
 
@@ -131,4 +131,143 @@ int main(){
 	cout << cost;
 	return 0;
 }
+```
+
+-----------
+
+# B - VAL
+
+https://codeforces.com/group/iBXOT8i9ss/contest/667261/problem/B
+
+## Đề bài.
+Cho dãy một gồm n số nguyên a1, a2, ..., an. Một dãy con liên tiếp là dãy có dạng ai, ai + 1, ..., aj (1 ≤ i ≤ j ≤ n), j - i + 1 được gọi là độ dài của dãy con đó.
+
+Yêu cầu: Hãy tìm độ dài lớn nhất của dãy con liên tiếp chỉ bao gồm đúng k giá trị.
+
+Dữ liệu vào: từ file văn bản val.inp
+
+Dòng đầu chứa hai số nguyên n, k (2 ≤ n ≤ 105;1 ≤ k ≤ 2);
+Dòng thứ hai chứa n số nguyên a1, a2, ..., an (1 ≤ ai ≤ 3;i = 1, 2, ..., n).
+Kết quả: ghi ra file văn bản val.out một số nguyên duy nhất là độ dài lớn nhất của dãy con liên tiếp chỉ bao gồm đúng k giá trị.
+
+Các số trên một dòng của dữ liệu vào được ghi cách nhau bởi một dấu cách. Dữ liệu đầu vào đảm bảo bài toán luôn tồn tại đáp án.
+
+Ràng buộc:
+
+Ràng buộc 1: 40% số test ứng với 40% số điểm của bài có k = 1;1 ≤ ai ≤ 2 với mọi i = 1, 2, ..., n và ai ≤ ai + 1 với mọi i = 1, 2, ..., n - 1;
+
+Ràng buộc 2: 40% số test ứng với 40% số điểm của bài có k = 1;
+
+Ràng buộc 3: 20% số test ứng với 20% số điểm của bài có k = 2.
+
+Examples
+
+InputCopy
+
+8 1
+
+1 1 1 2 2 2 2 2
+
+OutputCopy
+
+5
+
+InputCopy
+
+10 1
+
+1 2 2 3 2 3 3 3 1 1
+
+OutputCopy
+
+3
+
+InputCopy
+
+10 2
+
+1 3 2 3 3 1 1 3 1 2
+
+OutputCopy
+
+6
+
+## Giải thích đề. 
+
+Đề bài cho N và k, một dãy số a[i], yêu cầu tìm dãy dài nhất mà có đúng k phần tử khác nhau. 
+
+Đề bài nhấn mạnh tính chất đúng bằng k, nghĩa là nhiều hơn thì cũng không được mà nhỏ hơn k cũng không được, và có một điều đặc biệt rằng a[i] ở đây có giá trị từ 1 - 3 mà thôi. Một con số rất nhỏ và lí tưởng. 
+
+ví dụ ở trường hợp dãy số: 1 2 3 1 2, thì có k = 3 và độ dài là 5.
+
+## Hướng giải quyết.
+
+Đề yêu cầu mình phải làm 2 việc:
+- xác định xem dãy số có đúng k phần tử khác nhau không.
+- dài nhất là bao nhiêu.
+
+Chúng ta sẽ tách đề ra thành 2 việc và làm từng việc một.
+
+Đầu tiên là xác định dãy số có k phần tử hay không.
+vì tính chất của a[i] là những số rất nhỏ. nên ta có thể lưu một mảng trạng thái, đặt tên mảng là int theK[4], có index từ 0 -> 3, để lưu các số k xuất hiện mấy lần trong dãy con.
+
+Chúng ta xây dựng một hàm để tính xem trong theK[] có bao nhiêu số K xuất hiện.
+```cpp
+int soloai(int theK[]){
+	int res = 0;
+	for (int i = 0; i < 4; i++){
+		if (theK[i]) res++;
+	}
+	return res;
+```
+
+
+bài này sẽ dùng kỹ thuật duyệt 2 con trỏ, một là bên trái (left, với tên biến là l) một là phải (right, với tên biến là r) .
+ví dụ rằng dãy số 1 2 3 1 2, với l = 2, và r = 3, thì có 2 phần tử, là 2 3 . nên ta xác định công thức tính số lượng phần tử là r - l + 1. 
+
+khi chúng ta duyệt một r tăng lên, chúng ta kiểm tra xem dãy con có đúng k số loại thì cập nhật trạng thái, nếu mà số loại có lớn hơn k thì chúng ta phải tăng l lên để giảm số lượng phần tử của mảng xuống. 
+
+
+> ví dụ 1 2 3 1 2, k = 2, l = 1, r đi đến 3, dãy là 1 2 3, số loại là 3, nếu chúng ta tiếp tục tăng r lên, thì số loại sẽ không thể giảm xuống. Số loại chỉ giảm xuống khi tăng l lên bằng 2.
+
+> lúc này l = 2, r = 3, dãy con sẽ là 2 3, và có số loại là 2. 
+
+## code tham khảo.
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+int soloai(int theK[]){
+	int res =0;
+	for (int i = 0; i < 4; i++){
+		if (theK[i]){
+			res++;
+		}
+	}
+	return res;
+}
+int main(){
+	int res = 0;
+	int n, k;
+	cin >> n >> k;
+	int a[n];
+	int theK[4] = {0};
+	for (int i = 0; i < n; i++){
+		cin >> a[i];
+	}
+	int l = 0;
+	for (int r = 0; r < n; r++){
+		theK[a[r]]++;
+		while(soloai(theK) > k){
+			theK[a[l]]--;
+			l++;
+		}
+		if (soloai(theK) == k){
+			res = max(res, r - l + 1);
+		}
+	}
+	cout << res;
+	return 0;
+}
+
 ```
