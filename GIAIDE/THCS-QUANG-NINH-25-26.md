@@ -423,9 +423,32 @@ int main(){
 
 vì đề bài cho n = 300, khi dùng một mảng 3 trạng thái thì sẽ có 300 * 300 * 300 = 27 000 000 lần duyệt vòng lặp. còn nằm trong độ phức tạp cho phép.
 
-mảng dp lưu trạng thái của 3 biến đó là n, j, k. Tương ứng với trạng thái của số n, phép toán chia, và phép toán trừ. 
+mảng dp lưu trạng thái của 3 biến đó là n, j, k. Tương ứng với trạng thái của số n, phép toán chia, và phép toán trừ. mảng dp này là lưu tổng của mảng nhỏ nhất. chúng ta truy xuất kết quả ở dp[n][k1][k2], với ý nghĩa là tổng nhỏ nhất ở n phần tử khi sử dụng toàn bộ phép tính k1 và k2. 
+
+
+
+ban đầu khởi tạo mảng dp là một con số rất lớn, sau đó chúng ta sẽ chọn min với các lựa chọn. 
+
+
+```cpp
+	for (int i = 0; i < 301; i++){
+		for (int j = 0; j < 301; j++){
+			for (int k = 0; k < 301; k++){
+				dp[i][j][k] = 1e15; // khai báo một con số vô cùng lớn.
+			}
+		}
+	}
+```
+
+sau đó với mỗi trạng thái ta sẽ so sánh chọn với cách làm nhỏ nhất:
+- hoặc là không làm gì cả. 
+- hoặc là làm phép chia
+- hoặc là làm phép trừ
+- hoặc là làm cả 2 phép cùng lúc, và ta cũng không biết nên chọn phép nào làm trước phép kia, vì thế ta so sánh chúng và chọn cái nhỏ hơn.
+
 
 ## code dp tham khảo.
+
 
 
 ```cpp
