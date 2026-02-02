@@ -26,21 +26,35 @@ Ràng buộc 2: 20% số test ứng với 20% số điểm của bài có 6 �
 Examples
 
 Input
+
 2 4 3 5
+
 Output
+
 12
+
 Input
+
 2 7 2 4
 
 Output
+
 18
+
 Input
+
 4 14 2 3
+
 Output
+
 32
+
 Input
+
 3 12 1 2
+
 Output
+
 15
 
 ### Giải thích test
@@ -53,6 +67,7 @@ Các ngày trong tuần được đánh số từ 2 3 4 5 6, và 7 8 . sau đó 
 
 Đây là một dạng bài mô phỏng quá trình, đề bài cho 2 số đầu vào là k và d, với k là ngày bắt đầu làm việc, và d là số ngày làm việc liên tiếp. 
 Ví dụ:
+
 k = 2, d = 7, ta có những ngày làm việc như sau.
 2 3 4 5 6 7 8.
 
@@ -96,7 +111,7 @@ sau đó chúng ta in kết quả ra.
 using namespace std;
 int main(){
 	freopen("sal.inp", "r", stdin);
-  freopen("sal.out", "w", stdout);
+    freopen("sal.out", "w", stdout);
 	int k, d, a, b;
 	cin >> k >> d >> a >> b;
 
