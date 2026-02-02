@@ -512,3 +512,120 @@ int main(){
 	return 0;
 }
 ```
+
+
+# D - PAI
+
+## đề bài.
+
+Cho hai dãy gồm n số nguyên, dãy thứ nhất gồm các số a1, a2, ..., an, dãy thứ hai gồm các số b1, b2, ..., bn.
+
+Yêu cầu: Hãy đếm số cặp chỉ số (i, j) (1 ≤ i ≤ j ≤ n) mà số lớn nhất của các số ai, ai + 1, ..., aj bằng số nhỏ nhất của các số bi, bi + 1, ..., bj.
+
+Dữ liệu vào: từ tệp văn bản pai.inp
+
+Dòng đầu tiên chứa số nguyên n (1 ≤ n ≤ 105);
+Dòng thứ hai chứa n số nguyên a1, a2, ..., an (1 ≤ |ai| ≤ 109);
+Dòng thứ ba chứa n số nguyên b1, b2, ..., bn (1 ≤ |bi| ≤ 109).
+Kết quả: ghi ra tệp văn bản pai.out
+
+Một dòng duy nhất là kết quả của bài toán.
+Các số trên một dòng của dữ liệu vào được ghi cách nhau bởi một dấu cách.
+
+Ràng buộc:
+
+Ràng buộc 1: 25% số test ứng với 25% số điểm của bài có n ≤ 100;
+Ràng buộc 2: 25% số test ứng với 25% số điểm của bài có n ≤ 5000;
+Ràng buộc 3: 25% số test ứng với 25% số điểm của bài có n ≤ 105, a1 ≤ a2 ≤ ... ≤ an, b1 ≤ b2 ≤ ... ≤ bn;
+Ràng buộc 4: 25% số test còn lại ứng với 25% số điểm của bài không có ràng buộc gì thêm.
+Examples
+InputCopy
+6
+1 2 3 2 1 4
+6 7 1 2 3 2
+OutputCopy
+2
+InputCopy
+3
+3 3 3
+3 3 3
+OutputCopy
+6
+InputCopy
+7
+1 2 3 4 8 8 9
+2 4 6 8 8 8 9
+OutputCopy
+8
+InputCopy
+10
+1 2 3 2 1 3 2 1 2 1
+6 7 1 2 3 2 2 3 1 2
+OutputCopy
+4
+
+## Phân tích
+
+đề cho 2 dãy a và b, cần tìm số lượng các giải con l , r sao cho max của a thì bằng min của b.
+
+ví dụ như test 1 2 3 , max là 3, còn 5 4 3 thì có min là 3. là thỏa mãn.
+
+dùng kỹ thuật 2 con trỏ để vét test. một con trỏ for left 1 -> n, và right từ left -> n. 
+
+khi dịch right về cuối , càng mở rộng , nếu có trường hợp maxA > minB. Thì dù có mở rộng dãy con như thế nào chăng nữa thì cũng không thể làm thay đổi maxA và minB, cho nên ta cho dừng sớm.
+
+1 2 3 4 
+
+4 5 6 7
+
+thỏa mãn max A = min B = 4.
+
+sau đó mở rộng ra thành
+
+1 2 3 4 2
+4 5 6 7 3.
+
+lúc này max A = 4, còn min A = 3. dù có mở rộng thêm đi nữa thì min B cũng không thể nào tăng lên được nữa, chỉ có xu hướng là giảm xuống. 
+
+## code tham khảo
+
+```markdown
+# include<bits/stdc++.h>
+using namespace std;
+int main(){
+	// freopen("pai.inp", "r", stdin);
+	// freopen("pai.out", "w", stdout);
+
+	int n;
+	cin >> n;
+	long long a[n];
+	long long b[n];
+
+	for (int i = 0; i < n; i++){
+		cin >> a[i];
+	}
+
+	for (int i = 0; i < n; i++){
+		cin >> b[i];
+	}
+
+	long long  res = 0;
+	for (int i = 0; i < n; i++){
+		long long maxA = INT_MIN;
+		long long minB = INT_MAX;
+		for (int j = i; j < n; j++){
+			maxA = max(maxA, a[j]);
+			minB = min(minB, b[j]);
+			if (maxA == minB){
+				res ++;
+			}
+			if (maxA > minB){
+				break;
+			}
+		}
+	}
+	cout << res;
+	return 0;
+
+}
+```
