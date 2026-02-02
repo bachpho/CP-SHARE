@@ -271,3 +271,221 @@ int main(){
 }
 
 ```
+# C - ARR
+## Đề bài. 
+Cho một dãy gồm n số nguyên a1, a2, ..., an và các số nguyên b, k1, k2. Bạn được thực hiện tối đa k1 + k2 phép toán trên các phần tử của dãy để giảm tổng các phần tử của dãy số đã cho.
+
+Phép toán loại 1: Chọn một số ai bất kì của dãy và thay thế ai bằng ⌊ ai / 2⌋ (chia đôi và lấy phần nguyên, ví dụ: ⌊ 17 / 2⌋ = 8). Bạn được sử dụng tối đa k1 phép toán loại 1.
+
+Phép toán loại 2: Chọn một số ai bất kì của dãy và thay thế ai bằng giá trị lớn nhất của hai số ai - b và 0 (trừ đi b đơn vị, nếu kết quả âm thì lấy bằng 0). Bạn được sử dụng tối đa k2 phép toán loại 2.
+Quy tắc: Với mỗi số ai trong dãy, bạn có thể chọn: không phép toán nào, chỉ phép toán loại 1, chỉ phép toán loại 2, hoặc dùng cả hai phép toán, mỗi phép toán được thực hiện tối đa một lần với số ai. Nếu dùng cả hai loại trên cùng một số, bạn có thể thực hiện theo thứ tự nào tùy ý.
+
+Yêu cầu: Hãy tìm tổng nhỏ nhất của dãy số sau khi sử dụng tối đa k1 phép toán loại 1 và k2 phép toán loại 2.
+
+Dữ liệu vào: từ tệp văn bản arr.inp
+
+Dòng đầu chứa 4 số nguyên n, b, k1, k2 (1 ≤ n ≤ 300, 1 ≤ b ≤ 109, 0 ≤ k1, k2 ≤ n);
+Dòng thứ hai chứa n số nguyên dương ai (1 ≤ ai ≤ 109).
+Dữ liệu ra: ghi ra tệp văn bản arr.out
+
+Một số nguyên duy nhất là tổng nhỏ nhất tìm được.
+Các số trên một dòng của dữ liệu vào được ghi cách nhau bởi một dấu cách.
+
+Ràng buộc:
+
+Ràng buộc 1: 30% số test có k2 = 0;
+Ràng buộc 2: 30% số test có a1 = a2 = ... = an;
+Ràng buộc 3: 40% số test có n, k1, k2 ≤ 300, các giá trị đầu vào khác không có ràng buộc gì thêm.
+
+7 4 2 0
+1 2 1 8 3 5 7
+OutputCopy
+19
+InputCopy
+7 4 2 1
+1 2 1 8 3 5 7
+OutputCopy
+15
+InputCopy
+7 9 4 5
+19 2 1 8 8 5 5
+OutputCopy
+1
+InputCopy
+7 9 4 4
+8 8 8 8 8 8 8
+OutputCopy
+12
+
+## Phân tích.
+
+đề cho một dãy gồm n số. và một số b, và số lượng phép toán chia lấy sàn là k1, và trừ là k2. 
+
+phép toán chia k1 thực hiện như sau, 19 / 2 = 9. Lấy sàn ( bằng với phép chia lấy phần nguyên ).
+
+phép trừ với b, ví dụ a[0] = 5, b = 4 thì 5 - 1 = 1. Và có một điều đặc biệt là nếu trừ ra số âm thì ghi kết quả là 0.
+
+Một số có thể dùng cùng lúc 2 phép toán chia và trừ, hoặc là một phép toán, hoặc chia, hoặc trừ. 
+
+## Hướng giải quyết. 
+
+bài này có thể tham lam vét điểm, bằng cách sắp xếp lại mảng giảm dần. 
+
+Và ưu tiên dùng tất cả các phép toán cho những số lớn nhất, về việc tối ưu phép toán trừ và chia, dùng cái nào trước. 
+
+Ví dụ với test 
+19 8 
+trừ trước chia sau thì có kết quả là 19 - 8 = 11 / 2 = 5. 
+còn chia trước trừ sau thì có kết quả là 19 / 2 = 9 - 8 = 1. 
+
+thì chia trước trừ sau sẽ có lợi hơn. và cũng chỉ nên dùng phép trừ sau khi chia khi nó lớn hơn b. 
+như là test trên, 19 / 2 = 9 > 8. thì sẽ có lợi nhất.
+
+ví dụ về một trường hợp dùng 2 phép toán trên số lớn nhất không có lợi.
+
+ví dụ
+
+11 8 , b = 8. ta có 1 phép chia và 1 phép trừ. 
+
+nếu dùng 2 phép toán cho số trừ 11 thì sẽ còn 0 8, tổng = 8.
+nhưng chỉ chúng phép chia cho số đầu tiên, dành lại phép trừ cho số thứ 2 , thì dãy sẽ là 5 0, tổng là 5. 
+
+## code tham khảo trường hợp tham lam ( được 70 point).
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+int b;
+
+int phepchia(int n){
+	return n/2;
+}
+int pheptru(int n){
+	if (n - b < 0){
+		return 0;
+	}else{
+		return n - b;
+	}
+}
+
+
+int main(){
+    //freopen("arr.inp", "r", stdin);
+    //freopen("arr.out", "w", stdout);
+	int n, k1, k2;
+	cin >> n >> b >> k1 >> k2;
+	int a[n];
+	for(int i = 0; i < n; i++){
+		cin >> a[i];
+	}
+
+	sort(a, a + n, greater<int>());
+	
+	for (int i = 0; i< n; i++){
+		if (k1 > 0 && k2 > 0){
+			// hoặc làm cả 2/
+			if (phepchia(a[i]) >= b){
+				a[i] = pheptru(phepchia(a[i]));
+				k1--;
+				k2--;
+			}else if (a[i] - phepchia(a[i]) > a[i] - pheptru(a[i])){
+				// lam phep chia
+				a[i] = phepchia(a[i]);
+				k1--;
+			}else{
+				// lam phep tru
+				a[i] = pheptru(a[i]);
+				k2--;
+			}
+
+		}else if (k1 > 0){
+			// lam k1
+				a[i] = phepchia(a[i]);
+				k1--;
+		}else if (k2 > 0){
+			// lam k2
+				a[i] = pheptru(a[i]);
+				k2--;
+		}
+	}
+	long long tong = 0;
+	for (int i = 0; i < n; i++){
+		//cout << a[i] << " ";
+		tong += a[i];
+	}
+	//cout << endl;
+	cout << tong;
+	return 0;
+}
+```
+
+## hướng giải tối ưu, quy hoạch động 3 trạng thái.
+
+vì đề bài cho n = 300, khi dùng một mảng 3 trạng thái thì sẽ có 300 * 300 * 300 = 27 000 000 lần duyệt vòng lặp. còn nằm trong độ phức tạp cho phép.
+
+mảng dp lưu trạng thái của 3 biến đó là n, j, k. Tương ứng với trạng thái của số n, phép toán chia, và phép toán trừ. 
+
+## code dp tham khảo.
+
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+long long dp[301][301][301];
+int n, b, k1, k2;
+
+
+
+int main(){
+	cin >> n >> b >> k1 >> k2;
+	int a[n+ 1];
+
+
+	for (int i = 1; i <= n; i++){
+		cin >> a[i];
+	}
+
+	for (int i = 0; i < 301; i++){
+		for (int j = 0; j < 301; j++){
+			for (int k = 0; k < 301; k++){
+				dp[i][j][k] = 1e15;
+			}
+		}
+	}
+
+	
+	dp[0][0][0] = 0;
+	for (int i = 1; i < n + 1; i++){
+		for (int j = 0;j< k1+1; j++){
+			for (int k = 0; k < k2+1; k++){
+				// khong lam gi
+				dp[i][j][k] = dp[i-1][j][k] + a[i];
+				//  chia
+				if (j > 0){
+					dp[i][j][k] = min(dp[i][j][k], dp[i-1][j-1][k] + (a[i]/2) );
+				}
+				// tru
+				if (k > 0){
+					dp[i][j][k] =  min(dp[i][j][k], dp[i-1][j][k-1] + max(0, a[i] - b));
+				}
+
+				// lam ca 2
+				if (j > 0 && k > 0){
+					long long v1 = (a[i] / 2 ) - b;
+					long long v2 = (a[i]- b) / 2;
+					long long gtmoi = max(0ll, min(v1, v2));
+
+					dp[i][j][k] = min(dp[i][j][k], dp[i-1][j-1][k-1] + gtmoi);
+
+				}
+			}
+		}
+	}
+
+
+	cout << dp[n][k1][k2];
+
+	return 0;
+}
+```
