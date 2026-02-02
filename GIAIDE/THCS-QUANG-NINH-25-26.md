@@ -589,7 +589,7 @@ lúc này max A = 4, còn min A = 3. dù có mở rộng thêm đi nữa thì mi
 
 ## code tham khảo
 
-```markdown
+```cpp
 # include<bits/stdc++.h>
 using namespace std;
 int main(){
