@@ -8,5 +8,5 @@
 
 ## bitmask 
 
-[bitmarks](bitmask/readme.md)
+[bitmarks](bitmask/)
 
