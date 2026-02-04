@@ -1,3 +1,5 @@
+[Đề THCS QUẢNG NINH - 2025 - 2026](https://codeforces.com/group/iBXOT8i9ss/contest/667261)
+
 # A - SAL 
 
 https://codeforces.com/group/iBXOT8i9ss/contest/667261/problem/A
