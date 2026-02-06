@@ -13,7 +13,7 @@ Pete và Billy là những người cực kỳ thích các **số chẵn**. Đó
 
 ### Đầu vào
 
-Dòng đầu tiên (và duy nhất) chứa số nguyên **** () — khối lượng quả dưa hấu mà hai người đã mua.
+Dòng đầu tiên (và duy nhất) chứa số nguyên **w** () — khối lượng quả dưa hấu mà hai người đã mua.
 
 ### Đầu ra
 
