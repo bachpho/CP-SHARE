@@ -232,7 +232,7 @@ Bây giờ, ba vị trí đầu tiên `[2, 3, 5]` đã "yên bề gia thất". C
 2. Sau khi đổi chỗ số nhỏ hơn đó lên vị trí thứ tư, dãy số cuối cùng của chúng ta sẽ trông như thế nào?
 
 ❓ **Câu hỏi cuối cùng cho phần logic:** Bạn hãy viết ra dãy số hoàn chỉnh sau bước này nhé! Sau đó mình sẽ đố bạn một câu về "hiệu suất" của cách làm này. 💡
-
+```cpp
 void selectsort(int a[]){
 	for (int i = 0; i < n; i++){
 		int vitrimin = i;
@@ -245,6 +245,7 @@ void selectsort(int a[]){
 
 	}
 }
+```
 
 ## Sắp xếp chèn.
 
