@@ -102,7 +102,7 @@ int linearsearch(int a[], int k){
 ``` --> -->
 
 ## Hàm swap 2 số
-<!-- 
+
 Trước khi đi vào các thuật toán sắp xếp phức tạp như lính hành quân hay xếp bài, chúng ta cần thành thạo kỹ năng "đổi chỗ".
 
 ### Bước 1: "Phẫu thuật" vấn đề 🩺
@@ -156,12 +156,12 @@ Thì chuyện gì sẽ xảy ra? Ở dòng đầu tiên, "nước cam" đã trà
 3. A = B     (Lấy giá trị của B đè lên A)
 4. B = temp  (Lấy giá trị trong kho trả lại cho B)
 
-``` -->
+```
 
 ## Sắp xếp select sort
 
 
-<!-- Thay vì học vẹt công thức, hãy tưởng tượng chúng ta đang đối mặt với một **hàng học sinh 🧍‍♂️🧍‍♀️ đang đứng lộn xộn** và nhiệm vụ của chúng ta là xếp họ theo thứ tự từ thấp đến cao.
+Thay vì học vẹt công thức, hãy tưởng tượng chúng ta đang đối mặt với một **hàng học sinh 🧍‍♂️🧍‍♀️ đang đứng lộn xộn** và nhiệm vụ của chúng ta là xếp họ theo thứ tự từ thấp đến cao.
 
 ---
 
@@ -244,7 +244,7 @@ void selectsort(int a[]){
 		swap(a[i], a[vitrimin]);
 
 	}
-} -->
+}
 
 ## Sắp xếp chèn.
 

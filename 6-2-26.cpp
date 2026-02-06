@@ -65,31 +65,49 @@ void bubblesort(int a[]){
 		printa(a);
 	}
 }
+
+int ucln(int a, int b){
+	while (!(a % b == 0)) {
+		a = b;
+		b = a%b;
+	}
+
+	return b;
+}
 int main(){
 
-	cin >> n;
-	int a[n];
+	// cin >> n;
+	// int a[n];
 
-	for (int i = 0; i < n ; i++){
-		cin >> a[i];
-	}
+	// for (int i = 0; i < n ; i++){
+	// 	cin >> a[i];
+	// }
 
-	// cout << linearsearch(a, 3);
+	// // cout << linearsearch(a, 3);
 
-	// cout << linearsearch(a, 10);	
+	// // cout << linearsearch(a, 10);	
 
-	int c = 1 ;
-	int b = 2;
-	// selectsort(a);
+	// int c = 1 ;
+	// int b = 2;
+	// // selectsort(a);
 
-	// insertsort(a);
+	// // insertsort(a);
 
-	// bubblesort(a);
-	for (int i = 0; i < n; i++){
-		cout << a[i] << " ";
-	}
+	// // bubblesort(a);
+	// for (int i = 0; i < n; i++){
+	// 	cout << a[i] << " ";
+	// }
 
 
 
+	// int a = 12;
+	// int b = 8;
+
+	// while ((a % b != 0)) {
+	// 	a = b;
+	// 	b = a%b;
+	// }
+
+	cout << gcd(12, 8);
 	return 0;
 }
