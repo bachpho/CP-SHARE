@@ -10,6 +10,21 @@
 
 ----
 
+## Thuât toán tìm ucln 
+
+
+### code tham khảo
+
+```cpp
+int ucln(int a, int b){
+	while(b != 0){
+		int r = a % b;
+		a = b;
+		b = r;
+	}
+	return a;
+}
+
 ## Thuật toán tìm kiếm tuyến tính
 
 <!-- Chúng ta sẽ cùng nhau "mổ xẻ" kỹ thuật **Linear Search** (Tìm kiếm tuần tự) - viên gạch đầu tiên trong thế giới tìm kiếm nhé. 🧱
