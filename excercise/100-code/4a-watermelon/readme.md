@@ -7,7 +7,7 @@
 
 ---
 
-Vào một ngày hè nóng nực, Pete và người bạn Billy quyết định đi mua một quả dưa hấu. Họ đã chọn quả to nhất và chín nhất theo ý mình. Sau đó, quả dưa được đưa lên cân và kim đồng hồ chỉ số **** cân (kilos). Họ vội vã chạy về nhà vì đang khát khô cả cổ, nhưng khi định bổ dưa thì lại gặp phải một vấn đề nan giải.
+Vào một ngày hè nóng nực, Pete và người bạn Billy quyết định đi mua một quả dưa hấu. Họ đã chọn quả to nhất và chín nhất theo ý mình. Sau đó, quả dưa được đưa lên cân và kim đồng hồ chỉ số **w** cân (kilos). Họ vội vã chạy về nhà vì đang khát khô cả cổ, nhưng khi định bổ dưa thì lại gặp phải một vấn đề nan giải.
 
 Pete và Billy là những người cực kỳ thích các **số chẵn**. Đó là lý do tại sao họ muốn chia quả dưa sao cho mỗi phần của hai người đều có khối lượng là một số chẵn, đồng thời không nhất thiết hai phần đó phải bằng nhau. Vì quá mệt và muốn ăn càng sớm càng tốt, bạn hãy giúp họ kiểm tra xem liệu có thể chia quả dưa theo cách họ muốn hay không. Tất nhiên, mỗi người đều phải nhận được một phần có khối lượng dương (lớn hơn 0).
 
