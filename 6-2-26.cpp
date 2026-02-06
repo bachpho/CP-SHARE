@@ -2,15 +2,15 @@
 using namespace std;
 
 int n;
-
-int linearsearch(int a[], int k){
-	for (int i = 0; i < n; i ++){
-		if (a[i] == k ){
-			return i;
-		}
-	}
-	return -1;
-}
+int a[100000];
+// int linearsearch(int a[], int k){
+// 	for (int i = 0; i < n; i ++){
+// 		if (a[i] == k ){
+// 			return i;
+// 		}
+// 	}
+// 	return -1;
+// }
 
 void swap(int &a, int &b){
 	int temp = a;
@@ -34,54 +34,71 @@ void selectsort(int a[]){
 			}
 		}
 		swap(a[i], a[vitrimin]);
+		
+		printa(a);
+
 
 	}
 }
 
-void insertsort(int a[]){
-	for (int i = 0; i < n; i++){
-		int key = a[i];
-		for (int j = i - 1; j >= 0; j--){
-			if (a[j] > key){
-				a[j + 1] = a[j];
-			}else{
+// void insertsort(int a[]){
+// 	for (int i = 0; i < n; i++){
+// 		int key = a[i];
+// 		for (int j = i - 1; j >= 0; j--){
+// 			if (a[j] > key){
+// 				a[j + 1] = a[j];
+// 			}else{
 				 
-				a[j + 1] = key;
+// 				a[j + 1] = key;
 
-				break;
-			}
-		}
-		printa(a);
-	}
-}
+// 				break;
+// 			}
+// 		}
+// 		printa(a);
+// 	}
+// }
 
-void bubblesort(int a[]){
-	for (int i = 0; i < n - 1; i++){
-		for (int j = 0; j < n - 1; j++){
-			if (a[j] >  a[j + 1]){
-				swap(a[j], a[j+1]);
-			}
-		}
-		printa(a);
-	}
-}
+// void bubblesort(int a[]){
+// 	for (int i = 0; i < n - 1; i++){
+// 		for (int j = 0; j < n - 1; j++){
+// 			if (a[j] >  a[j + 1]){
+// 				swap(a[j], a[j+1]);
+// 			}
+// 		}
+// 		printa(a);
+// 	}
+// }
 
 int ucln(int a, int b){
-	while (!(a % b == 0)) {
+	while (!(b == 0)) {
+		
+		int r = a % b;
 		a = b;
-		b = a%b;
+		b = r;
 	}
 
-	return b;
+	return a;
 }
+
 int main(){
 
-	// cin >> n;
-	// int a[n];
 
-	// for (int i = 0; i < n ; i++){
-	// 	cin >> a[i];
-	// }
+	// cout << ucln ( 8, 12 );
+	// cout << __gcd(8, 12);
+
+	cin >> n;
+	int a[n];
+
+	for (int i = 0; i < n ; i++){
+		cin >> a[i];
+	}
+
+	int uc = a[0];
+	for (int i = 1; i < n; i++){
+		uc = ucln(uc, a[i]);
+	}
+
+	cout << uc;
 
 	// // cout << linearsearch(a, 3);
 
@@ -89,8 +106,8 @@ int main(){
 
 	// int c = 1 ;
 	// int b = 2;
-	// // selectsort(a);
-
+	// selectsort(a);
+	// printa(a);
 	// // insertsort(a);
 
 	// // bubblesort(a);
@@ -108,6 +125,6 @@ int main(){
 	// 	b = a%b;
 	// }
 
-	cout << gcd(12, 8);
+	// cout << gcd(12, 8);
 	return 0;
 }

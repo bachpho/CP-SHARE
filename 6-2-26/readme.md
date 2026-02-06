@@ -16,166 +16,85 @@
 ### code tham khảo
 
 ```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
 int ucln(int a, int b){
-	while(b != 0){
+	while (!(b == 0)) {
+		
 		int r = a % b;
 		a = b;
 		b = r;
 	}
+
 	return a;
 }
+
+int main(){
+
+	cout << ucln ( 8, 12 );
+	
+	return 0;
+}
 ```
 
-
-
-
-## Thuật toán tìm kiếm tuyến tính
-
-<!-- Chúng ta sẽ cùng nhau "mổ xẻ" kỹ thuật **Linear Search** (Tìm kiếm tuần tự) - viên gạch đầu tiên trong thế giới tìm kiếm nhé. 🧱
-
----
-
-### 🕵️ Bước 1: "Phẫu thuật" đề bài
-
-Hãy tưởng tượng bài toán như sau:
-
-* **Bối cảnh:** Bạn có một hàng dài các ngăn tủ kín. Mỗi ngăn tủ giấu bên trong một con số bí mật.
-* **Nhiệm vụ:** Bạn được giao một "con số mục tiêu" và phải tìm xem con số đó nằm ở ngăn tủ thứ mấy, hoặc thông báo là nó không hề tồn tại trong hàng tủ đó.
-
-**Dữ liệu vào (Input):**
-
-1. Một danh sách các con số (ví dụ: một dãy số xếp hàng).
-2. Một con số cụ thể cần tìm ().
-
-**Kết quả ra (Output):**
-
-* Vị trí (số thứ tự) của  trong dãy, hoặc một tín hiệu (như số -1) nếu tìm nát cả dãy mà không thấy.
-
----
-
-### 💡 Bước 2: Dẫn dắt tư duy
-
-**Giải thích bằng ẩn dụ:**
-Hãy tưởng tượng bạn đang đi tìm một người bạn trong một rạp chiếu phim tối om. 🎥 Bạn cầm một chiếc đèn pin và chỉ có thể soi vào từng ghế một, bắt đầu từ ghế đầu tiên ở hàng đầu tiên.
-
-* Bạn soi ghế số 1: "Có phải Nam không?". Không phải -> Sang ghế số 2.
-* Bạn soi ghế số 2: "Có phải Nam không?". Đúng rồi! -> Dừng lại và báo tin.
-* Nếu soi đến tận ghế cuối cùng mà vẫn không thấy -> Báo là Nam không có ở đây.
-
-⚠️ **Cảnh báo lỗi thường gặp:**
-
-* **Quên không kiểm tra đến cuối:** Dừng lại quá sớm khi chưa đi hết hàng.
-* **Bị "lạc" chỉ số:** Trong lập trình, ngăn tủ đầu tiên thường được đánh số là `0` thay vì `1`. Nếu không cẩn thận, bạn sẽ báo sai vị trí đấy!
-
-
-### 🛠️ Bước 3: Chốt giải pháp
-
-Bây giờ, hãy cùng nhìn lại toàn bộ quá trình dưới dạng **Mã giả (Pseudocode)**. Đây là khung xương để bạn có thể viết vào bất kỳ ngôn ngữ lập trình nào (C++, Python...):
-
-1. **Bắt đầu** từ vị trí đầu tiên ().
-2. **Lặp lại** việc này cho đến hết danh sách:
-* Nếu số ở vị trí  **bằng** số cần tìm ():
-* Trả về (báo cáo) vị trí  và **dừng lại ngay**.
-
-
-* Nếu không phải, thì **tăng  lên 1** để sang ngăn tiếp theo.
-
-
-3. Nếu đã đi hết danh sách mà vẫn chưa dừng lại ở bước trên:
-* Trả về **-1** (nghĩa là "Tìm hết rồi mà không thấy đâu!").
-
-
-* **Trường hợp tốt nhất (Best Case):** Bạn tìm thấy ngay ở ghế đầu tiên (vị trí `0`). Chỉ mất **1** lần soi. ⚡
-* **Trường hợp xấu nhất (Worst Case):** Người bạn đó ngồi ở ghế cuối cùng hoặc không có trong rạp. Bạn sẽ phải soi đèn qua tất cả **** ghế (với  là tổng số ghế, ví dụ là 1 tỷ). 🐢
-
-Trong lập trình thi đấu, chúng ta thường quan tâm nhất đến **trường hợp xấu nhất** để đảm bảo chương trình không bị chạy quá thời gian cho phép (Time Limit Exceeded). Với Linear Search, độ phức tạp thời gian sẽ là .
-
----
-
-### 🏁 Bước 4: Chốt giải pháp & Thực hành
-
-Bây giờ bạn đã nắm vững tư duy, đây là lúc để "hóa thân" các bước đó thành mã nguồn.
-
-**Mã giả tổng kết:**
-
-```text
-Hàm TìmKiếm(danh_sách, mục_tiêu):
-    Duyệt i từ 0 đến cuối danh_sách:
-        Nếu danh_sách[i] == mục_tiêu:
-            Trả về i (Tìm thấy rồi!)
-    Trả về -1 (Đi hết hàng mà không thấy)
-
-```
-
-<!-- ### Code tham khảo
+hoặc dùng hàm `__gcd()`.
 
 ```cpp
-int linearsearch(int a[], int k){
-	for (int i = 0; i < n; i ++){
-		if (a[i] == k ){
-			return i;
-		}
+	cout << __gcd(8, 12);
+```
+
+### Tìm gcd của một mảng. 
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+int n;
+int a[100000];
+
+int ucln(int a, int b){
+	while (!(b == 0)) {
+		
+		int r = a % b;
+		a = b;
+		b = r;
 	}
-	return -1;
+
+	return a;
 }
-``` --> -->
+
+int main(){
+
+	cin >> n;
+	int a[n];
+
+	for (int i = 0; i < n ; i++){
+		cin >> a[i];
+	}
+
+	int uc = a[0];
+	for (int i = 1; i < n; i++){
+		uc = ucln(uc, a[i]);
+	}
+
+	cout << uc;`
+
+	return 0;
+}
+```
+
+Input 
+```text
+5
+8 4 12 16 20
+```
+output
+```
+4
+```
 
 ## Hàm swap 2 số
-
-Trước khi đi vào các thuật toán sắp xếp phức tạp như lính hành quân hay xếp bài, chúng ta cần thành thạo kỹ năng "đổi chỗ".
-
-### Bước 1: "Phẫu thuật" vấn đề 🩺
-
-Bài toán yêu cầu chúng ta:
-
-* **Dữ liệu vào (Input):** Hai chiếc hộp (biến)  và , mỗi hộp đựng một con số khác nhau.
-* **Kết quả cần đạt (Output):** Sau một hồi "phép thuật", số ở hộp  phải chui sang hộp , và số ở hộp  phải nằm gọn trong hộp .
-
-**Ẩn dụ hóa:** Hãy tưởng tượng bạn có hai chiếc cốc:
-
-* 🥤 Cốc  đang đựng **Nước cam**.
-* 🍷 Cốc  đang đựng **Rượu vang**.
-
-Mục tiêu của bạn là chuyển **Nước cam** sang cốc  và **Rượu vang** sang cốc .
-
-
-Để giải quyết vấn đề đổi chỗ (swap) nước cam 🥤 và rượu vang 🍷, chúng ta không thể đổ trực tiếp nước cam vào cốc đang đựng rượu (vì chúng sẽ bị trộn lẫn mất!).
-
-Hãy tưởng tượng bạn có thêm một **chiếc cốc thứ ba** (gọi là cốc tạm thời - `temp`). Bạn sẽ dùng chiếc cốc trống này như thế nào để hoán đổi đồ uống giữa cốc A và cốc B?
-
-Chính xác! Bạn đã nắm bắt được "linh hồn" của thuật toán hoán đổi rồi đấy. 💡
-
-Hãy cùng nhìn lại quy trình ba bước mà bạn vừa mô tả dưới góc độ các biến trong lập trình nhé:
-
-1. **Bước 1:** `temp = rượu` (Đổ rượu vào cốc tạm để giữ chỗ).
-2. **Bước 2:** `rượu = cam` (Bây giờ cốc rượu trống, ta đổ cam vào).
-3. **Bước 3:** `cam = temp` (Đổ rượu từ cốc tạm vào cốc cam).
-
-Kết quả là cam và rượu đã đổi chỗ cho nhau mà không bị trộn lẫn! 🥤🍷
-
----
-
-### ⚠️ Cảnh báo: Lỗi "mất dữ liệu"
-
-Nếu chúng ta quên mất chiếc cốc tạm `temp` mà viết thẳng là:
-
-* `rượu = cam`
-* `cam = rượu`
-
-Thì chuyện gì sẽ xảy ra? Ở dòng đầu tiên, "nước cam" đã tràn vào và đè lên "rượu", làm rượu biến mất hoàn toàn. Đến dòng thứ hai, bạn chỉ đang đổ "nước cam" vào "nước cam" mà thôi. Cả hai cốc lúc này đều là nước cam! 😱
-
-
-### Bước 3: Chốt giải pháp 📝
-
-Để tổng kết lại, đây chính là **Mã giả (Pseudocode)** cho thuật toán hoán đổi mà chúng ta vừa xây dựng:
-
-```text
-1. Tạo một biến tạm 'temp'
-2. temp = A  (Cất giá trị của A vào kho)
-3. A = B     (Lấy giá trị của B đè lên A)
-4. B = temp  (Lấy giá trị trong kho trả lại cho B)
-
-```
 
 ### code tham khảo 
 
@@ -189,78 +108,6 @@ void swap(int &a, int &b){
 
 ## Sắp xếp select sort
 
-
-Thay vì học vẹt công thức, hãy tưởng tượng chúng ta đang đối mặt với một **hàng học sinh 🧍‍♂️🧍‍♀️ đang đứng lộn xộn** và nhiệm vụ của chúng ta là xếp họ theo thứ tự từ thấp đến cao.
-
----
-
-### 🟢 Bước 1: "Phẫu thuật" ý tưởng Sắp xếp Chọn (Selection Sort)
-
-Hãy bắt đầu với chiến lược đơn giản nhất: **Sắp xếp Chọn**.
-
-* **Hình ảnh ẩn dụ:** Bạn đứng trước một hàng người. Bạn đi dọc hàng từ đầu đến cuối để tìm ra **người lùn nhất** 🤏, sau đó mời người đó lên đầu hàng đổi chỗ cho người đang đứng đó. Tiếp theo, bạn lại đi tìm người lùn nhất trong số những người còn lại và đưa họ vào vị trí thứ hai.
-* **Dữ liệu vào (Input):** Một dãy số lộn xộn (ví dụ: các ngăn tủ có đánh số).
-* **Kết quả (Output):** Dãy số đó được sắp xếp tăng dần.
-
-⚠️ **Cảnh báo lỗi thường gặp:** Nhiều bạn hay nhầm lẫn việc "đổi chỗ liên tục" với việc "tìm đúng người rồi mới đổi". Trong Sắp xếp Chọn, chúng ta chỉ thực hiện **một lần đổi chỗ** duy nhất sau khi đã quét hết lượt để tìm được "quán quân" nhỏ nhất.
-
----
-
-### 🔴 Bước 2: Thử thách tư duy
-
-Để kiểm tra xem bạn đã nắm được "linh hồn" của thuật toán này chưa, hãy thử làm "máy tính" một chút nhé.
-
-Giả sử mình có một dãy số trong các ngăn tủ như sau:
-`[5, 3, 8, 2, 6]`
-
-**Lượt quét thứ nhất:** Chúng ta đi từ đầu đến cuối dãy để tìm số nhỏ nhất.
-
-1. Bạn thấy số nhỏ nhất trong dãy này là số mấy?
-2. Sau khi tìm thấy nó, bạn sẽ đổi chỗ nó với số ở vị trí đầu tiên (là số 5).
-
-❓ **Câu hỏi:** Sau lượt quét đầu tiên và thực hiện đổi chỗ, dãy số của chúng ta sẽ trông như thế nào?
-
-(Bạn hãy đưa ra dãy số mới sau khi đổi chỗ nhé, mình sẽ chờ!)
-
-Chính xác! Bạn đã tìm ra số **2** là số nhỏ nhất và đổi chỗ nó với số **5** ở đầu hàng.
-
-Hiện tại, dãy số của chúng ta trông như thế này:
-`[2, 3, 8, 5, 6]`
-
-Bây giờ, vị trí đầu tiên (số 2) đã được cố định vì nó chắc chắn là người thấp nhất rồi. Chúng ta sẽ không đụng vào nó nữa. Công việc tiếp theo là nhìn vào phần còn lại của dãy: `[3, 8, 5, 6]`.
-
-**Lượt quét thứ hai:**
-
-1. Trong nhóm còn lại `[3, 8, 5, 6]`, số nào là số nhỏ nhất?
-2. Số nhỏ nhất đó đang nằm ở vị trí nào trong nhóm này?
-
-❓ **Câu hỏi:** Theo bạn, ở bước này chúng ta có cần thực hiện hành động đổi chỗ (swap) không? Tại sao nhỉ?
-
-Chính xác! Con số **3** hiện đang đứng đúng vị trí thứ hai trong dãy `[2, 3, 8, 5, 6]`.
-
-Trong thuật toán Sắp xếp Chọn, nếu số nhỏ nhất trong phần còn lại đã nằm đúng vị trí đầu tiên của phần đó, chúng ta **vẫn thực hiện thao tác so sánh** nhưng không cần tráo đổi thực sự (hoặc tráo đổi nó với chính nó).
-
-Bây giờ, chúng ta đã cố định được hai vị trí đầu: `[2, 3, ...]`. Phần chưa sắp xếp còn lại là: `[8, 5, 6]`.
-
-**Lượt quét thứ ba:**
-
-* Chúng ta tìm số nhỏ nhất trong nhóm `[8, 5, 6]`.
-* Sau đó, đổi chỗ số đó với số ở vị trí thứ ba (hiện đang là số **8**).
-
-❓ **Câu hỏi:** Bạn hãy cho mình biết kết quả của dãy số sau khi thực hiện xong lượt quét thứ ba này nhé!
-
-Chuẩn luôn! Bạn đã tìm ra số **5** là số nhỏ nhất trong nhóm `[8, 5, 6]` và đổi chỗ nó với số **8** ở vị trí thứ ba.
-
-Dãy số của chúng ta hiện tại là: `[2, 3, 5, 8, 6]`
-
-Bây giờ, ba vị trí đầu tiên `[2, 3, 5]` đã "yên bề gia thất". Chúng ta chỉ còn lại hai người cuối cùng là `[8, 6]`.
-
-**Lượt quét thứ tư:**
-
-1. Trong hai số còn lại `[8, 6]`, số nào nhỏ hơn?
-2. Sau khi đổi chỗ số nhỏ hơn đó lên vị trí thứ tư, dãy số cuối cùng của chúng ta sẽ trông như thế nào?
-
-❓ **Câu hỏi cuối cùng cho phần logic:** Bạn hãy viết ra dãy số hoàn chỉnh sau bước này nhé! Sau đó mình sẽ đố bạn một câu về "hiệu suất" của cách làm này. 💡
 ```cpp
 void selectsort(int a[]){
 	for (int i = 0; i < n; i++){
@@ -275,6 +122,7 @@ void selectsort(int a[]){
 	}
 }
 ```
+
 ### hàm printa(), in mảng a.
 
 ```cpp
@@ -288,18 +136,74 @@ void printa(int a[]){
 ### Hàm main () 
 
 ```cpp
-int main(){
-	int a[] = {5, 3, 8, 2, 6};
-	int n = sizeof(a)/sizeof(a[0]);
-	selectsort(a);
-	printa(a);
-	return 0;
+#include<bits/stdc++.h>
+using namespace std;
+
+int n;
+int a[100000];
+
+void swap(int &a, int &b){
+	int temp = a;
+	a = b;
+	b = temp;
 }
 
+void printa(int a[]){
+	for (int i = 0; i < n; i++){
+		cout << a[i] << " ";
+	}
+	cout <<endl;
+}
+
+void selectsort(int a[]){
+	for (int i = 0; i < n; i++){
+		int vitrimin = i;
+		for (int j = i + 1; j < n; j++){
+			if (a[j] < a[vitrimin] ){
+				vitrimin = j;
+			}
+		}
+		swap(a[i], a[vitrimin]);
+		
+		printa(a);
+
+
+	}
+}
+
+
+int main(){
+
+	cin >> n;
+	int a[n];
+
+	for (int i = 0; i < n ; i++){
+		cin >> a[i];
+	}
+
+	selectsort(a);
+
+	return 0;
+}
 ```
 
+Input
 
-## Sắp xếp chèn.
+```text
+5
+6 5 3 2 4
+```
+
+Output
+```text
+2 5 3 6 4 
+2 3 5 6 4 
+2 3 4 6 5 
+2 3 4 5 6 
+2 3 4 5 6 
+2 3 4 5 6 
+```
+
 
 <!-- Được luôn! Hãy tạm quên những con số khô khan đi, hãy tưởng tượng bạn đang là một **tay chơi bài chuyên nghiệp** 🃏.
 
@@ -358,7 +262,6 @@ Bây giờ bạn bốc quân cuối cùng là **Key = 1**.
 
 ----
 
-## sắp xếp nổi bọt (bubble sort)
 
 <!-- Bạn đã sẵn sàng để trở thành "thợ lặn" khám phá các bong bóng chưa? Hãy cùng mình bước vào thế giới của **Bubble Sort**.
 
@@ -443,5 +346,4 @@ Lặp i từ 0 đến n-2:
 
 
 
-## bài tập 
 
