@@ -1,12 +1,11 @@
 # Nội dung ngày 6/2/26
 
-- thuật toán tìm kiếm tuyến tính 
+- thuật chia euclid.
 
 - hàm swap 2 số.
 
 - sắp xếp select sort
 
-- sắp xếp bubble sort
 
 ----
 
