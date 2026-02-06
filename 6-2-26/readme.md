@@ -24,6 +24,10 @@ int ucln(int a, int b){
 	}
 	return a;
 }
+```
+
+
+
 
 ## Thuật toán tìm kiếm tuyến tính
 
@@ -271,6 +275,29 @@ void selectsort(int a[]){
 	}
 }
 ```
+### hàm printa(), in mảng a.
+
+```cpp
+void printa(int a[]){
+	for (int i = 0; i < n; i++){
+		cout << a[i] << " ";
+	}
+}
+```
+
+### Hàm main () 
+
+```cpp
+int main(){
+	int a[] = {5, 3, 8, 2, 6};
+	int n = sizeof(a)/sizeof(a[0]);
+	selectsort(a);
+	printa(a);
+	return 0;
+}
+
+```
+
 
 ## Sắp xếp chèn.
 
