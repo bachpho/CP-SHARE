@@ -158,6 +158,16 @@ Thì chuyện gì sẽ xảy ra? Ở dòng đầu tiên, "nước cam" đã trà
 
 ```
 
+### code tham khảo 
+
+``` cpp
+void swap(int &a, int &b){
+	int temp = a;
+	a = b;
+	b = temp;
+}
+```
+
 ## Sắp xếp select sort
 
 
